@@ -38,8 +38,14 @@ function calculateAll() {
 // ITERATION 4
 
 function removeProduct(event) {
-  const target = event.currentTarget.parentNode;
+  const target = event.currentTarget.parentNode.parentNode;
+  //target.removeChild(parentNode.parentNode);
+  target.parentNode.removeChild(target);
   console.log('The target in remove is:', target);
+//parent.removeChild(target); 
+ // 
+  //removeChild(target)
+  
   //... your code goes here
 }
 
