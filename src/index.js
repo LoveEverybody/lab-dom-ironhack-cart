@@ -1,23 +1,25 @@
 // ITERATION 1
 
 function updateSubtotal(product) {
-  const productPrice = document.querySelector('.price span').textContent;
-  const productQuantity = document.querySelector('.quantity input').value;
-  const subTotal = (+productPrice)*(+productQuantity);
-  //console.log(productPrice+'->>'+productQuantity)
+  //I was doing document.querySelector... and not in the specific prodcut...
+  //it was returning allways the same product (first) - ok now
+  const productPrice = product.querySelector('.price span').innerText;
+  const productQuantity = product.querySelector('.quantity input').value;
+  const subTotal = Number(productPrice) * Number(productQuantity);
   const subTotalOdd = product.querySelector('.subtotal span')
-  //document.querySelector('.subtotal span').textContent = subTotal;
   subTotalOdd.innerText = subTotal
   return subTotal;
 }
 
 function calculateAll() {
   const browserProducts = document.getElementsByClassName('product')
-  console.log(browserProducts)
   const allProducts = [...browserProducts]
-  //console.log(allProducts)
   let totalProducts = 0;
   allProducts.forEach(product => totalProducts += updateSubtotal(product))
+  //for(let i = 0; i < allProducts.length; i++){
+   //console.log(updateSubtotal(allProducts[i]))
+ // }
+  
 
   document.querySelector("#total-value span").innerText = totalProducts;
 
